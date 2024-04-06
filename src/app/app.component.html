@@ -1,0 +1,12 @@
+<main>
+  <div>
+    <app-dynamic-checkbox-list [itemsCarregados]="listaObjetoDinamica" [itensPorPagina]="50"
+      (objetosSelecionadosChange)="onObjetosSelecionadosChange($event,'dinamica')"></app-dynamic-checkbox-list>
+  </div>
+  <div>
+    <app-dynamic-checkbox-list [itemsCarregados]="listaObjetoEmpresa" [itensPorPagina]="10"
+      (objetosSelecionadosChange)="onObjetosSelecionadosChange($event,'empresa')"></app-dynamic-checkbox-list>
+  </div>
+
+  <button (click)="enviarCodigosSelecionadosParaBackend()">Enviar</button>
+</main>

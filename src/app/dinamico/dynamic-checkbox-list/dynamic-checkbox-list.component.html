@@ -1,0 +1,19 @@
+
+<form>
+    <!-- Campo de busca -->
+    <input type="text" [formControl]="termoDeBuscaControl " placeholder="Digite para buscar">
+
+    <!-- Lista de objetos com checkboxes -->
+    <div class="posicao">
+        <div *ngFor="let objeto of listaFiltrada.slice(0, paginaAtual * itensPorPagina); trackBy: trackByCodigo">
+            <input type="checkbox" [id]="prefixoId + '_' + objeto.codigo" [checked]="isSelecionado(objeto)"
+                (change)="toggleSelecao(objeto)">
+            <label [for]="prefixoId + '_' + objeto.codigo">
+                {{ objeto.codigo }}
+                <span *ngIf="objeto.nome !== null">{{ ' - ' + objeto.nome }}</span>
+            </label>
+        </div>
+    </div>
+    <!-- Botão Ver Mais -->
+    <button *ngIf="listaFiltrada.length > paginaAtual * itensPorPagina" (click)="verMais()">Ver Mais</button>
+</form>
